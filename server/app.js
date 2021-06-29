@@ -1,5 +1,6 @@
 var createError = require('http-errors');
-var express = require('express');
+//var express = require('express');
+import express from "express";
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -11,7 +12,7 @@ var usersRouter = require('./routes/users');
 const passport = require("passport");
 const passportConfig = require("./config/passport");
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
