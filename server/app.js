@@ -1,28 +1,35 @@
-var createError = require('http-errors');
+//var createError = require('http-errors');
 //var express = require('express');
+//var path = require('path');
+//var cookieParser = require('cookie-parser');
+//var logger = require('morgan');
+import createError  from "http-errors";
 import express from "express";
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import path from "path";
+const __dirname = path.resolve(); 
+//import cookieParser from "cookieParser";
+import logger from "morgan";
 
 // 라우트 선언 부분
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-const passport = require("passport");
-const passportConfig = require("./config/passport");
+//var indexRouter = require('./routes/index');
+//var usersRouter = require('./routes/users');
+import index from "./routes/index.js";
+//import usersRouter from "./routes/users";
+//import {test} from "./routes/test.js";
+import passport from "passport";
+//const passportConfig = require("./config/passport");
 
 const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* 라우터 호출 부분 */
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/', indexRouter);
+//app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -41,4 +48,4 @@ app.use(function(err, req, res, next) {
 
 });
 
-module.exports = app;
+//module.exports = app;
