@@ -1,27 +1,26 @@
-//var express = require('express');
-import express from "express";
-const router = express.Router();
 
-const UsersController = require("../Controller/UsersController");
+import BaseRouter from "./BaseRouter.js";
 
-/* GET users listing. */
-router.get('/', function(req, res){ //하나의 라우터에 하나의 컨트롤러 붙임.
-  new UsersController().test(req,res);
-});
 
-router.get('/:id', function(req, res, next) {
-  res.json([
-    {id:1, username:"test"},
-    {id:2, username:"무야호2"},
-    {id:3, username:"퇴근"}
-  ]);
-});
+class users extends BaseRouter{
+  constructor(
+    UsersController
+  ){
 
-router.put('/:id', function(req, res, next) {
-  res.json([
-    {id:2, unser:"수정됨"}
-  ])
-})
+    super(UsersController);
 
-//module.exports = router;
-export default router;
+    this.Router.route('/login')
+    .all( (req, res, next) =>{
+      // runs for all HTTP verbs first
+      // think of it as route specific middleware!
+      //console.log("여기에 미들웨어 호출?");
+      next();
+    })
+    .post( (req,res,next) => {
+      this.Controller.test(req,res);
+    })
+
+  }
+}
+
+export default users;

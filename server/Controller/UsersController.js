@@ -7,10 +7,14 @@ class UsersController{
 
 
     test(req,res){
-
-        req.body.map(day => {
-            console.log(day)
-        });
+        
+        /*
+        if(req.body.length){
+            req.body.map(day => {
+                console.log(day)
+            });
+        }
+        */
         
         res.json([
             {id:2, unser:"수정됨"}
@@ -19,4 +23,4 @@ class UsersController{
 
 }
 
-module.exports = UsersController;
+export default UsersController;

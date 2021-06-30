@@ -1,24 +1,18 @@
-//var createError = require('http-errors');
-//var express = require('express');
-//var path = require('path');
-//var cookieParser = require('cookie-parser');
-//var logger = require('morgan');
 import createError  from "http-errors";
 import express from "express";
 import path from "path";
 const __dirname = path.resolve(); 
-//import cookieParser from "cookieParser";
 import logger from "morgan";
 import cookieParser from "cookie-parser"; // cookie-parser 모듈 import
 
-// 라우트 선언 부분
-//var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
-import index from "./routes/index.js";
-//import usersRouter from "./routes/users";
-//import {test} from "./routes/test.js";
 import passport from "passport";
 //const passportConfig = require("./config/passport");
+
+/* 사용 할 컨트롤러와 라우터 선언 */
+import index from "./routes/index.js";
+import users from "./routes/users.js";
+
+import UsersController from "./Controller/UsersController.js";
 
 const app = express();
 
@@ -28,12 +22,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/* 컨트롤러 라우터 선언부 */
+const userController = new UsersController(); //컨트롤러 클래스
+
+const indexRouter = new index(userController); //라우터 클래스
+const usersRouter = new users(userController); //유저 라우터 클래스
+
 /* 라우터 호출 부분 */
-const apiRouter = express.Router();
-const indexRouter = new index();
-apiRouter.use('/',indexRouter.Router);
-app.use('/', apiRouter);
-//app.use('/users', usersRouter);
+app.use('/api', indexRouter.Router); // url에 해당하는 라우터 호출
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
