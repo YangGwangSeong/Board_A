@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "nodemong": "nodemon app.js"
+    "nodemong": "nodemon ./bin/www"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",

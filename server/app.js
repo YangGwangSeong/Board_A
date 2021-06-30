@@ -9,6 +9,7 @@ import path from "path";
 const __dirname = path.resolve(); 
 //import cookieParser from "cookieParser";
 import logger from "morgan";
+import cookieParser from "cookie-parser"; // cookie-parser 모듈 import
 
 // 라우트 선언 부분
 //var indexRouter = require('./routes/index');
@@ -24,11 +25,14 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-//app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* 라우터 호출 부분 */
-//app.use('/', indexRouter);
+const apiRouter = express.Router();
+const indexRouter = new index();
+apiRouter.use('/',indexRouter.Router);
+app.use('/', apiRouter);
 //app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
@@ -49,3 +53,4 @@ app.use(function(err, req, res, next) {
 });
 
 //module.exports = app;
+export default app;
