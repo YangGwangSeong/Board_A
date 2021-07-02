@@ -17,7 +17,7 @@ class users extends BaseRouter{
       next();
     })
     .post( (req,res,next) => {
-      this.Controller.test(req,res);
+      this.Controller.UserLogin(req,res);
     })
 
   }

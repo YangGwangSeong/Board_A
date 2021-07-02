@@ -6,7 +6,10 @@ import logger from "morgan";
 import cookieParser from "cookie-parser"; // cookie-parser 모듈 import
 
 import passport from "passport";
+import passportConfig from "./config/passport.js";
 //const passportConfig = require("./config/passport");
+
+passportConfig();
 
 /* 사용 할 컨트롤러와 라우터 선언 */
 import index from "./routes/index.js";
@@ -25,12 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* 컨트롤러 라우터 선언부 */
 const userController = new UsersController(); //컨트롤러 클래스
 
-const indexRouter = new index(userController); //라우터 클래스
+//const indexRouter = new index(userController); //라우터 클래스
 const usersRouter = new users(userController); //유저 라우터 클래스
 
 /* 라우터 호출 부분 */
-app.use('/api', indexRouter.Router); // url에 해당하는 라우터 호출
-
+//app.use('/api', indexRouter.Router); // url에 해당하는 라우터 호출
+app.use('/api/users', usersRouter.Router);
 
 
 
