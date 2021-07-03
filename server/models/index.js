@@ -10,7 +10,6 @@ import User from "../models/User.js";
 const env = process.env.NODE_ENV || "development";
 const config = require(path.join("../","config", "db.json"))[env];
 
-
 class Database{
    
     constructor(){
