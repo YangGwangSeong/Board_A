@@ -33,12 +33,7 @@ class index extends BaseRouter{
     .delete ( (req,res,next) => {
       this.Controller.test(req,res);
     })
-   
-    
-    
-    
-    
-    
+  
   }
   
 }

@@ -2,7 +2,10 @@
 import Sequelize from 'sequelize';
 
 export default class User extends Sequelize.Model {
+    
     static init(sequelize) {
+        
+        
         let options = {}
         options.sequelize = sequelize
         options.timestamps = true //true로 하면 createdAt과 updatedAt을 생성한다.
@@ -39,7 +42,10 @@ export default class User extends Sequelize.Model {
         }, options)
     }
     
+    
+    //1대1 관계에서 hasMany와 belongsTo
     static associate(db) {
+        
         db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" });
     }
     // VARCHAR STRING
