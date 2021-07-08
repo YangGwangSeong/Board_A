@@ -5,6 +5,7 @@ const __dirname = path.resolve();
 import logger from "morgan";
 import cookieParser from "cookie-parser"; // cookie-parser 모듈 import
 
+<<<<<<< HEAD
 import passport from "passport";
 import passportConfig from "./config/passport.js";
 //const passportConfig = require("./config/passport");
@@ -18,6 +19,16 @@ import users from "./routes/users.js";
 import UsersController from "./Controller/UsersController.js";
 
 const app = express();
+=======
+// 라우트 선언 부분
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+const passport = require("passport");
+const passportConfig = require("./config/passport");
+
+var app = express();
+>>>>>>> cbdc299 (설정 쌓임)
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,6 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+<<<<<<< HEAD
 /* 컨트롤러 라우터 선언부 */
 const userController = new UsersController(); //컨트롤러 클래스
 
@@ -37,6 +49,11 @@ app.use('/api/users', usersRouter.Router);
 
 
 
+=======
+/* 라우터 호출 부분 */
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+>>>>>>> cbdc299 (설정 쌓임)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

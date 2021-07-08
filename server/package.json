@@ -5,7 +5,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+<<<<<<< HEAD
     "nodemong": "nodemon ./bin/www"
+=======
+    "nodemong": "nodemon index.js"
+>>>>>>> cbdc299 (설정 쌓임)
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
@@ -17,6 +21,7 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
+<<<<<<< HEAD
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
@@ -26,6 +31,14 @@
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
+=======
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+>>>>>>> cbdc299 (설정 쌓임)
     "nodemon": "^2.0.7"
   }
 }
