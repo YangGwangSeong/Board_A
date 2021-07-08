@@ -1,5 +1,4 @@
 //서비스 가져오고
-<<<<<<< HEAD
 import UserService from "../Service/UserService.js";
 
 class UsersController{
@@ -35,20 +34,6 @@ class UsersController{
             });
         }
         */
-=======
-//사용할 dao가져오고
-
-
-class UsersController{
-    
-
-
-    test(req,res){
-
-        req.body.map(day => {
-            console.log(day)
-        });
->>>>>>> cbdc299 (설정 쌓임)
         
         res.json([
             {id:2, unser:"수정됨"}
@@ -57,8 +42,4 @@ class UsersController{
 
 }
 
-<<<<<<< HEAD
 export default UsersController;
-=======
-module.exports = UsersController;
->>>>>>> cbdc299 (설정 쌓임)
