@@ -8,6 +8,7 @@ import passport from "passport";
 import passportJWT from "passport-jwt";
 import passport_local from "passport-local";
 import path from "path";
+import hashing from "../lib/hashing.js";
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 const LocalStrategy = passport_local.Strategy;
@@ -37,8 +38,14 @@ const JWT_SECRET = require(path.join("../", "config", "db.json"))
 
 // 함수로 내보내서 사용하자.
 
+const hash = new hashing();
 export default () => {
-  
+    
+    const id    ="soen83";
+    const pw    ="1234";
+    
+    const test = hash.enc(id,pw,salt);
+    console.log(test);
     
 }
 
