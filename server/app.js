@@ -18,7 +18,7 @@ import users from "./routes/users.js";
 import UsersController from "./Controller/UsersController.js";
 
 const app = express();
-
+app.use(passport.initialize());//passport사용
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,7 +33,7 @@ const usersRouter = new users(userController); //유저 라우터 클래스
 
 /* 라우터 호출 부분 */
 //app.use('/api', indexRouter.Router); // url에 해당하는 라우터 호출
-app.use('/api/users', usersRouter.Router);
+app.use('/api/user', usersRouter.Router);
 
 
 

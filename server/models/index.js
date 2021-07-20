@@ -32,10 +32,13 @@ class Database{
         this.db = db;
         
         this.db.sequelize = this._sequelize;
+        this.db.Sequelize = Sequelize;
         this.db.User = User;
         User.init(this._sequelize);
         this.db.Comment = Comment;
         Comment.init(this._sequelize);
+
+        
         User.associate(this.db);
         Comment.associate(this.db);
 

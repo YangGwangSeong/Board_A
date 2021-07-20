@@ -27,17 +27,21 @@ export default class User extends Sequelize.Model {
         // init(attributes, options)
         // Using additional options like getterMethods, setterMethods, indexes etc
         return super.init({
+            email:{
+                type: Sequelize.STRING(100),
+                allowNull : false,
+                unique: true,
+            },
             name: {
                 type: Sequelize.STRING(20),
                 allowNull: false,
-                unique: true,
             },
             age: {
                 type: Sequelize.INTEGER.UNSIGNED, //양수
             },
-            comment: {
-                type: Sequelize.STRING(100),
-                allowNull: false,
+            password: {
+              type: Sequelize.STRING(100),
+              allowNull : false,  
             },
         }, options)
     }

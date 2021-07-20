@@ -1,44 +1,22 @@
 //서비스 가져오고
 import UserService from "../Service/UserService.js";
+const userService = new UserService();
 
 class UsersController{
     
     constructor(){
         
     }
-
-    UserLogin(req,res){
+    
+    UserCreate(req,res){
         
-        const userService = new UserService();
-        userService.UserLogin(req,res);
+        userService.UserCreate(req,res);
         
-        //res.json([
-        //    "로그인성공"
-        //])
     }
-
-
-
-
-
-
-
-
-
-    test(req,res){
-        
-        /*
-        if(req.body.length){
-            req.body.map(day => {
-                console.log(day)
-            });
-        }
-        */
-        
-        res.json([
-            {id:2, unser:"수정됨"}
-        ])
-    }   
+    
+    UserLogin(req,res){
+        userService.UserLogin(req,res);
+    }
 
 }
 

@@ -1,3 +1,4 @@
+import passport from "passport";
 import BaseRouter from "./BaseRouter.js";
 
 
@@ -9,18 +10,48 @@ class users extends BaseRouter{
     super(UsersController);
     
     /*
-    URL : login
-    로그인 요청
+    URL : api/user/create
+    유저 생성요청
+    */
+    this.Router.route('/create')
+    // .all( (req, res, next) =>{
+    //   // runs for all HTTP verbs first
+    //   // think of it as route specific middleware!
+    //   //console.log("여기에 미들웨어 호출?");
+    //   next();
+    // })
+    .post( (req,res,next) => {
+      
+      this.Controller.UserCreate(req,res);
+    })
+
+    /*
+    URL : api/user/login
+    유저 로그인
     */
     this.Router.route('/login')
-    .all( (req, res, next) =>{
-      // runs for all HTTP verbs first
-      // think of it as route specific middleware!
-      //console.log("여기에 미들웨어 호출?");
-      next();
+    .post( (req,res,next) => {
+      
+      this.Controller.UserLogin(req,res);
+    })
+    
+    /*
+    유저 rest api
+    */
+    this.Router.route('/:id')
+    .all( passport.authenticate('jwt', {session: false}), async (req, res, next) =>{
+        try{
+          next();
+        } catch (error) {
+          console.error(error);
+          next(error);
+        }
     })
     .post( (req,res,next) => {
-      this.Controller.UserLogin(req,res);
+      res.json([{"test": "1"}])
+    })
+    .put( (req, res, next) => {
+      res.json([{"user" : "수정하기"}])
     })
 
     /*

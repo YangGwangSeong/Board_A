@@ -2,6 +2,8 @@ import Database from "../models/index.js";
 
 const models = Database.models;
 const User = models.User;
+const {Sequelize : { Op }} = models.Sequelize;
+const sequelize = Database._sequelize;
 
 Database._sequelize
 .sync({force: false})
@@ -13,17 +15,40 @@ Database._sequelize
 })
 class UserDAO{
 
-    UserLogin(req, callback){
+    UserCreate(req, hashpw, callback){
+        const body = req.body;
+
+        User.count({
+            where : { email : body.email }
+        })
+        .then( cnt => {
+            
+            if(cnt > 0) { //이미 존재하는 계정.
+                 callback(false); 
+            } else {
+                User.create({
+                    email: body.email,
+                    name: body.name,
+                    password : hashpw,
+                    age: body.age,
+                    createdAt: sequelize.literal('now()'),
+                    updatedAt : sequelize.literal('now()')
+                }).then(data => {
+                    callback(data);
+                }).catch(err => {
+                    throw err;
+                })
+            }
+        })
+      
+    }
+
+    UserFindOne(req, hashpw, callback){
         const body = req.body;
         
-        User.create({
-            id: body[0].id,
-            name: body[0].name,
-            age: 3,
-            comment : "admin",
-            createdAt: "2021-07-04 18:08:58",
-            updatedAt : "2021-07-04 18:08:58"
-        }).then(data => {
+        User.findOne({
+            where : {[Op.and]: [{email : body.email, password : hashpw}]}
+        }).then( data =>{
             callback(data);
         }).catch(err => {
             throw err;
