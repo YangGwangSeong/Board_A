@@ -1,0 +1,12 @@
+@import "./default.css";
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: red;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+.App{
+    font: 100% $font-stack;
+}

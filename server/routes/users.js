@@ -36,6 +36,9 @@ class users extends BaseRouter{
     })
     
     /*
+    api/user/:id
+    put : id가진 유저 수정
+    delete : id가진 유저 삭제
     유저 rest api
     */
     this.Router.route('/:id')
@@ -53,7 +56,7 @@ class users extends BaseRouter{
     .put( (req, res, next) => {
       res.json([{"user" : "수정하기"}])
     })
-
+    
     /*
     URL : register
     회원가입 요청

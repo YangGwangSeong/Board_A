@@ -35,7 +35,9 @@ const usersRouter = new users(userController); //유저 라우터 클래스
 //app.use('/api', indexRouter.Router); // url에 해당하는 라우터 호출
 app.use('/api/user', usersRouter.Router);
 
-
+app.use('/users', function(req,res){
+  res.send([{id:0,username:"test"}])
+});
 
 
 // catch 404 and forward to error handler
