@@ -4,7 +4,7 @@ import "./css/base.scss";
 //npm install node-sass@4.14.1
 import LandingPage from "./components/LandingPage/LandingPage";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Header from "./containers/HeaderContainer";
 function App() {
 
 const [data, setData] = useState([]);
