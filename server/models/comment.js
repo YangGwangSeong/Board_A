@@ -1,7 +1,7 @@
 'use strict'
 import Sequelize from 'sequelize';
 
-export default class User extends Sequelize.Model {
+export default class comment extends Sequelize.Model {
     static init(sequelize) {
         let options = {}
         options.sequelize = sequelize

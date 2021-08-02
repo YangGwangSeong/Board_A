@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css");
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -41,3 +44,17 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+
+/* 여러곳에서 쓰는 css */
+/* 폰트 */ 
+*{
+	font-family: 'Poppins', sans-serif !important;
+	box-sizing: border-box;
+}
+.flex{
+	display:flex;
+}
+
+

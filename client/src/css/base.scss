@@ -1,12 +1,8 @@
 @import "./default.scss";
 
-$font-stack:    Helvetica, sans-serif;
-$primary-color: red;
-
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
-.App{
-    font: 100% $font-stack;
+.main_layout{
+	display: flex;
+	justify-content: center;
+	background: rgba(246, 246, 246, 0.5);
+	padding: 40px 0px;
 }

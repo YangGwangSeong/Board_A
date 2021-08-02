@@ -7,17 +7,14 @@ class UsersController{
     constructor(){
         
     }
-    
     UserCreate(req,res){
         
         userService.UserCreate(req,res);
         
     }
-    
     UserLogin(req,res){
         userService.UserLogin(req,res);
     }
-
 }
 
 export default UsersController;

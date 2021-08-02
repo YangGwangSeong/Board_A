@@ -39,17 +39,24 @@ class UserService{
 
                 return res.send({obj,err});
             }
+
             req.login( user, {session: false}, (err) => { // passport 내장함수인듯?
                 if (err) {
                     res.send(err);
                 }
                 
-                const token = jwt.sign({ id : user.id}, JWT_SECRET , { expiresIn : "180m"} ); 
+                const token = jwt.sign({ id : user.id}, JWT_SECRET , { expiresIn : "60m"} ); 
                 obj["suc"] = true;
                 obj["msg"] = "로그인 성공";
+                obj["Accesstoken"] = token;
                 
+                //res
+                //.cookie("x_auth", user.token, {
+                //    maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
+                //    httpOnly: true,
+                //  })
                 
-                return res.send({obj,token});
+                return res.send({obj});
             })
         })(req,res);
 
