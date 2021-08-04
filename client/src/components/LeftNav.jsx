@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import 'boxicons';
 import LeftNavstyle from "../css/LeftNav.module.scss";
+import LeftNavIcon from "./LeftNavIcon";
 
 function LeftNav() {
+    
+    /*
+    리액트스럽지 못한 코드... Ref도 지양해야하고, 사용자가 dom접근을 하면 최소화해야함.
+    let arrow = document.querySelectorAll(".arrow");
+    
+    const inputEl = useRef();
+    console.log(inputEl);
+    for (let i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e)=>{
+        let arrowParent = e.target.parentElement.parentElement;
+        arrowParent.classList.toggle(`${LeftNavstyle.showMenu}`);
+        });
+    }
+    */
+
     return (
-        <div className={`${LeftNavstyle.sidebar} ${LeftNavstyle.close}`}>
+        <div className={`${LeftNavstyle.sidebar} `}> 
             <div className={LeftNavstyle.logo_details}>
                 <i className='bx bxl-c-plus-plus'></i>
                 <span className={LeftNavstyle.logo_name}>CodingLab</span>
@@ -25,7 +41,8 @@ function LeftNav() {
                             <i className='bx bx-collection'></i>
                             <span className={LeftNavstyle.link_name}>Category</span>
                         </a>
-                        <i className='bx bxs-chevron-down arrow'></i>
+                        <LeftNavIcon />
+                        {/* <i className={'bx bxs-chevron-down arrow ' + `${LeftNavstyle.arrow}` }></i> */}
                     </div>
                     <ul className={LeftNavstyle.sub_menu}>
                         <li><a className={LeftNavstyle.link_name} href="#">Category</a></li>
@@ -40,7 +57,8 @@ function LeftNav() {
                             <i className='bx bx-book-alt'></i>
                             <span className={LeftNavstyle.link_name}>Posts</span>
                         </a>
-                        <i className='bx bxs-chevron-down arrow'></i>
+                        <LeftNavIcon />
+                        {/* <i className='bx bxs-chevron-down arrow'></i> */}
                     </div>
                     <ul className={LeftNavstyle.sub_menu}>
                         <li><a className={LeftNavstyle.link_name} href="#">Posts</a></li>
@@ -73,7 +91,8 @@ function LeftNav() {
                             <i className='bx bx-plug' ></i>
                             <span className={LeftNavstyle.link_name}>Plugins</span>
                         </a>
-                        <i className='bx bxs-chevron-down arrow'></i>
+                        <LeftNavIcon />
+                        {/* <i className='bx bxs-chevron-down arrow'></i> */}
                     </div>
                     <ul className={LeftNavstyle.sub_menu}>
                         <li><a className={LeftNavstyle.link_name} href="#">Plugins</a></li>
