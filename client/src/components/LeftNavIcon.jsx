@@ -1,8 +1,10 @@
 import React from 'react'
+import LeftNavstyle from "../css/LeftNav.module.scss";
 
-function LeftNavIcon() {
+function LeftNavIcon(props) {
+    
     return (
-        <i className='bx bxs-chevron-down arrow'></i>
+        <i className={'bx bxs-chevron-down arrow ' + `${LeftNavstyle.arrow}`} onClick={() => props.toggleClass(props.isShowMenu)}></i>
     );
 }
 
