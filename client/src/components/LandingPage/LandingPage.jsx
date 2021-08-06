@@ -2,7 +2,7 @@ import React from 'react'
 
 function LandingPage() {
     return (
-        <div>
+        <div className="MainLayout_Wrapper">
             랜딩페이지.
         </div>
     )

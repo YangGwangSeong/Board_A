@@ -1,9 +1,10 @@
 import React from 'react'
 import LeftNav from "../components/LeftNav";
 
-function LeftNavContainer() {
+function LeftNavContainer(props) {
+    
     return (
-        <LeftNav />
+        <LeftNav setClose={props.setClose}/>
     )
 }
 

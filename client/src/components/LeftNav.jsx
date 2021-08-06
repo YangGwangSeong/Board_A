@@ -3,7 +3,7 @@ import 'boxicons';
 import LeftNavstyle from "../css/LeftNav.module.scss";
 import IconArrow from "./LeftNavIcon";
 
-function LeftNav() {
+function LeftNav(props) {
     
     /*
     리액트스럽지 못한 코드... Ref도 지양해야하고, 사용자가 dom접근을 하면 최소화해야함.
@@ -41,15 +41,18 @@ function LeftNav() {
             ...isShowMenu, // 기존의 input 객체를 복사한 뒤
             [Tab]: !isShowMenu[Tab] // name 키를 가진 값을 value 로 설정
         });
+
+        if(Tab==="Close"){
+            props.setClose(Close);
+        }
     };
-
     
-
     return (
         <>
-            <div className={Close ? `${LeftNavstyle.sidebar} ${LeftNavstyle.close}` : `${LeftNavstyle.sidebar}` }> 
+            <div className={Close ? `${LeftNavstyle.sidebar}` : `${LeftNavstyle.sidebar} ${LeftNavstyle.close}`}> 
                 <div className={LeftNavstyle.logo_details}>
-                    <i className='bx bxl-c-plus-plus'></i>
+                    {/* <i className='bx bxl-c-plus-plus'></i> */}
+                    <i className='bx bx-menu' onClick={() => toggleClass("Close")}></i>
                     <span className={LeftNavstyle.logo_name}>CodingLab</span>
                 </div>
                 <ul className={LeftNavstyle.nav_links}>
@@ -173,12 +176,12 @@ function LeftNav() {
                     </li>
                 </ul>
             </div>
-            <section className={LeftNavstyle.home_section}>
+            {/* <section className={LeftNavstyle.home_section}>
                 <div className={LeftNavstyle.home_content}>
-                    <i className='bx bx-menu' onClick={() => toggleClass("Close")}></i>
+                    
                     <span className={LeftNavstyle.text}>Drop Down Siderbar</span>
                 </div>
-            </section>
+            </section> */}
         </>
     )
 }

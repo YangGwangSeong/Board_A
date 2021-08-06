@@ -14,6 +14,8 @@ function App() {
 
 const [data, setData] = useState([]);
 
+const [isClose, setClose] = useState(true);
+
 const getUsers = async () => {
   const result = await axios.get('/users');
   setData(result.data);
@@ -27,9 +29,9 @@ useEffect( () => {
     <div className="main_layout">
       <div className="flex">
         <div>
-          <LeftNav />
+          <LeftNav setClose={setClose}/>
         </div>
-        <div>
+        <div className={isClose ? "isClose home_section" : "home_section"}>
           <Header />
             <LandingPage>
             {data.map(user => (
