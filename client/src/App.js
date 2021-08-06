@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./css/base.scss";
 import LandingPage from "./components/LandingPage/LandingPage";
-import Footer from "./components/Footer";
+import Footer from "./containers/FooterContainer";
 import Header from "./containers/HeaderContainer";
 import LeftNav from "./components/LeftNav";
 
@@ -26,12 +26,12 @@ useEffect( () => {
 }, []);
 
   return (
-    <div className="main_layout">
-      <div className="flex">
-        <div>
-          <LeftNav setClose={setClose}/>
-        </div>
-        <div className={isClose ? "isClose home_section" : "home_section"}>
+    <div className="flex">
+      <div>
+        <LeftNav setClose={setClose}/>
+      </div>
+      <div className={isClose ? "isClose home_section flex" : "home_section flex"}>
+        <div className="main_content">
           <Header />
             <LandingPage>
             {data.map(user => (

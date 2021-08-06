@@ -2,7 +2,6 @@
 
 .main_layout{
 	display: flex;
-	background: rgba(246, 246, 246, 0.5);
 }
 
 .isClose.home_section{
@@ -14,6 +13,22 @@
     background-color: #E4E9F7;
     left: 260px;
     width : calc(100vw - 260px);
-    height : 100vh;
+    min-height: 100vh;
     transition: all 0.5s ease;
+	flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+	
+}
+
+.main_content{
+	display: flex;
+	min-height: 100vh; 
+	flex-direction: column;
+	width: 768px;
+}
+@media only screen and (max-width: 768px) {
+	.main_content {
+		width: 100%;
+	}
 }
