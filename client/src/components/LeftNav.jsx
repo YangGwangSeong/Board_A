@@ -2,7 +2,6 @@ import React, { useRef,useState } from 'react';
 import 'boxicons';
 import LeftNavstyle from "../css/LeftNav.module.scss";
 import IconArrow from "./LeftNavIcon";
-import IconMenu from "./IconMenu";
 
 function LeftNav() {
     
@@ -23,9 +22,10 @@ function LeftNav() {
     const [isShowMenu, setShowMenu] = useState({
         Category : false,
         Posts: false,
-        Plugins: false
+        Plugins: false,
+        Close : false
     });
-    const { Category, Posts, Plugins } = isShowMenu; // 비구조화 할당을 통해 값 추출
+    const { Category, Posts, Plugins, Close } = isShowMenu; // 비구조화 할당을 통해 값 추출
 
     
     const toggleClass = (Tab) => {
@@ -47,7 +47,7 @@ function LeftNav() {
 
     return (
         <>
-            <div className={`${LeftNavstyle.sidebar} `}> 
+            <div className={Close ? `${LeftNavstyle.sidebar} ${LeftNavstyle.close}` : `${LeftNavstyle.sidebar}` }> 
                 <div className={LeftNavstyle.logo_details}>
                     <i className='bx bxl-c-plus-plus'></i>
                     <span className={LeftNavstyle.logo_name}>CodingLab</span>
@@ -175,7 +175,7 @@ function LeftNav() {
             </div>
             <section className={LeftNavstyle.home_section}>
                 <div className={LeftNavstyle.home_content}>
-                    <i className='bx bx-menu' ></i>
+                    <i className='bx bx-menu' onClick={() => toggleClass("Close")}></i>
                     <span className={LeftNavstyle.text}>Drop Down Siderbar</span>
                 </div>
             </section>
