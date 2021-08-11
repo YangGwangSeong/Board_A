@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./css/base.scss";
-import LandingPage from "./components/LandingPage/LandingPage";
+import Landing from "./containers/LandingPageContainer";
 import Footer from "./containers/FooterContainer";
 import Header from "./containers/HeaderContainer";
 import LeftNav from "./components/LeftNav";
@@ -31,16 +31,22 @@ useEffect( () => {
         <LeftNav setClose={setClose}/>
       </div>
       <div className={isClose ? "isClose home_section flex" : "home_section flex"}>
+        <div>
+          왼쪽설정
+        </div>
         <div className="main_content">
           <Header />
-            <LandingPage>
+            <Landing>
             {data.map(user => (
                       <li key = {user.id}>
                         {user.username}
                       </li>
                   ))}
-            </LandingPage>
+            </Landing>
           <Footer />
+        </div>
+        <div>
+          오른쪽 메뉴
         </div>
       </div>
     </div>

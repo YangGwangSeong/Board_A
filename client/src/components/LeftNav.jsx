@@ -2,6 +2,7 @@ import React, { useRef,useState } from 'react';
 import 'boxicons';
 import LeftNavstyle from "../css/LeftNav.module.scss";
 import IconArrow from "./LeftNavIcon";
+import LoginModal from '../components/LoginModal';
 
 function LeftNav(props) {
     
@@ -175,7 +176,9 @@ function LeftNav(props) {
                         </div>
                     </li>
                 </ul>
+                {/* <LoginModal /> */}
             </div>
+            
             {/* <section className={LeftNavstyle.home_section}>
                 <div className={LeftNavstyle.home_content}>
                     

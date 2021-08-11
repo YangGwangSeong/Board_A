@@ -4,7 +4,7 @@ import LeftNav from "../components/LeftNav";
 function LeftNavContainer(props) {
     
     return (
-        <LeftNav setClose={props.setClose}/>
+        <LeftNav setClose={props.setClose}/>  
     )
 }
 
