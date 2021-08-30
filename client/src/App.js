@@ -4,7 +4,7 @@ import "./css/base.scss";
 import Landing from "./containers/LandingPageContainer";
 import Footer from "./containers/FooterContainer";
 import Header from "./containers/HeaderContainer";
-import LeftNav from "./components/LeftNav";
+import LeftNav from "./containers/LeftNavContainer";
 
 //npm install node-sass@4.14.1
 //npm install boxicons --save
@@ -13,13 +13,14 @@ import LeftNav from "./components/LeftNav";
 function App() {
 
 const [data, setData] = useState([]);
-
 const [isClose, setClose] = useState(true);
+const [isLoginModal, setLoginModal] = useState(false);
 
 const getUsers = async () => {
   const result = await axios.get('/users');
   setData(result.data);
 }
+
 
 useEffect( () => {
   getUsers();
@@ -27,6 +28,10 @@ useEffect( () => {
 
   return (
     <div className="flex">
+
+      {/* 검은색오버레이 화면. */}
+      <div className="overlay onmenu"></div>
+
       <div>
         <LeftNav setClose={setClose}/>
       </div>

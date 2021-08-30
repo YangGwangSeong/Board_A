@@ -17,8 +17,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -50,7 +48,7 @@ table {
 /* 여러곳에서 쓰는 css */
 /* 폰트 */ 
 *{
-	font-family: 'Poppins', sans-serif !important;
+	font-family: 'Poppins', sans-serif ;
 	box-sizing: border-box;
 }
 .flex{

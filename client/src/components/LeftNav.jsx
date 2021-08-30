@@ -52,7 +52,6 @@ function LeftNav(props) {
         <>
             <div className={Close ? `${LeftNavstyle.sidebar}` : `${LeftNavstyle.sidebar} ${LeftNavstyle.close}`}> 
                 <div className={LeftNavstyle.logo_details}>
-                    {/* <i className='bx bxl-c-plus-plus'></i> */}
                     <i className='bx bx-menu' onClick={() => toggleClass("Close")}></i>
                     <span className={LeftNavstyle.logo_name}>CodingLab</span>
                 </div>
@@ -73,7 +72,6 @@ function LeftNav(props) {
                                 <span className={LeftNavstyle.link_name}>Category</span>
                             </a>
                             <IconArrow  toggleClass={toggleClass} isShowMenu="Category" />
-                            {/* <i className={'bx bxs-chevron-down arrow ' + `${LeftNavstyle.arrow}` }></i> */}
                         </div>
                         <ul className={LeftNavstyle.sub_menu}>
                             <li><a className={LeftNavstyle.link_name} href="#">Category</a></li>
@@ -89,7 +87,6 @@ function LeftNav(props) {
                                 <span className={LeftNavstyle.link_name}>Posts</span>
                             </a>
                             <IconArrow  toggleClass={toggleClass} isShowMenu="Posts"/>
-                            {/* <i className='bx bxs-chevron-down arrow'></i> */}
                         </div>
                         <ul className={LeftNavstyle.sub_menu}>
                             <li><a className={LeftNavstyle.link_name} href="#">Posts</a></li>
@@ -123,7 +120,6 @@ function LeftNav(props) {
                                 <span className={LeftNavstyle.link_name}>Plugins</span>
                             </a>
                             <IconArrow  toggleClass={toggleClass} isShowMenu="Plugins"/>
-                            {/* <i className='bx bxs-chevron-down arrow'></i> */}
                         </div>
                         <ul className={LeftNavstyle.sub_menu}>
                             <li><a className={LeftNavstyle.link_name} href="#">Plugins</a></li>
@@ -176,7 +172,7 @@ function LeftNav(props) {
                         </div>
                     </li>
                 </ul>
-                {/* <LoginModal /> */}
+                { <LoginModal /> }
             </div>
             
             {/* <section className={LeftNavstyle.home_section}>
