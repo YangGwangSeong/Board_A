@@ -6,6 +6,7 @@ import Footer from "./containers/FooterContainer";
 import Header from "./containers/HeaderContainer";
 import LeftNav from "./containers/LeftNavContainer";
 
+import LoginModal from "./components/LoginModal";
 //npm install node-sass@4.14.1
 //npm install boxicons --save
 
@@ -28,10 +29,7 @@ useEffect( () => {
 
   return (
     <div className="flex">
-
-      {/* 검은색오버레이 화면. */}
-      <div className="overlay onmenu"></div>
-
+      <LoginModal />
       <div>
         <LeftNav setClose={setClose}/>
       </div>
@@ -41,7 +39,7 @@ useEffect( () => {
         </div>
         <div className="main_content">
           <Header />
-            <Landing>
+            <Landing>  
             {data.map(user => (
                       <li key = {user.id}>
                         {user.username}
