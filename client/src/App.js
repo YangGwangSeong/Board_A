@@ -13,15 +13,14 @@ import LoginModal from "./components/LoginModal";
 
 
 function App() {
+  const [isClose, setClose] = useState(true);
 
-const [data, setData] = useState([]);
-const [isClose, setClose] = useState(true);
-const [isLoginModal, setLoginModal] = useState(false);
+  const [data, setData] = useState([]);
 
-const getUsers = async () => {
-  const result = await axios.get('/users');
-  setData(result.data);
-}
+  const getUsers = async () => {
+    const result = await axios.get('/users');
+    setData(result.data);
+  }
 
 
 useEffect( () => {
@@ -32,7 +31,9 @@ useEffect( () => {
     <div className="flex">
       <LoginModal />
       <div>
-        <LeftNav setClose={setClose}/>
+        <LeftNav 
+          setClose={setClose}
+        />
       </div>
       <div className={isClose ? "isClose home_section flex" : "home_section flex"}>
         <div>

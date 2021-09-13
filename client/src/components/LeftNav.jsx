@@ -24,9 +24,10 @@ function LeftNav(props) {
         Category : false,
         Posts: false,
         Plugins: false,
-        Close : false
+        Close : false,
+        LoginMenu : false
     });
-    const { Category, Posts, Plugins, Close } = isShowMenu; // 비구조화 할당을 통해 값 추출
+    const { Category, Posts, Plugins, Close, LoginMenu } = isShowMenu; // 비구조화 할당을 통해 값 추출
 
     
     const toggleClass = (Tab) => {
@@ -157,7 +158,7 @@ function LeftNav(props) {
                     </li>
                     <li>
                         <div className={LeftNavstyle.profile_details}>
-                            <div className={LeftNavstyle.profile_content}>
+                            <div className={LeftNavstyle.profile_content} onClick={() => toggleClass("LoginMenu")}>
                                 <img src="image/profile.jpg" alt="profile" />
                             </div>
                             <div className={LeftNavstyle.name_job}>
@@ -172,7 +173,10 @@ function LeftNav(props) {
                         </div>
                     </li>
                 </ul>
-                { <LoginModal /> }
+                <LoginModal 
+                    LoginMenu={LoginMenu}
+                    toggleClass={toggleClass}
+                />
             </div>
             
             {/* <section className={LeftNavstyle.home_section}>
