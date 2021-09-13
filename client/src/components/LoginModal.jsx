@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Styles from "../css/LoginModal.module.scss";
 
 function LoginModal() {
@@ -30,13 +31,19 @@ function LoginModal() {
                         // onChange={this.loginHandler}
                     />
                     <div className={Styles.loginMid}>
-                        <div></div>
+                        <div className={Styles.autoLogin}>123</div>
                         <div className={Styles.autoLogin}>아이디/비밀번호 찾기</div>
                     </div>
                     <button className={Styles.loginBtn} >
                     로그인  
                     </button>
                 </div>
+                <div className="loginEnd">
+                    <div className="loginLine">
+                      회원이 아니신가요? <Link to="/signup">회원가입</Link>
+                    </div>
+                    <div className="noUser">비회원 주문 조회</div>
+                  </div>
             </div>
         </>
     )
