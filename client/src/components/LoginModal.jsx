@@ -22,11 +22,17 @@ function LoginModal(props) {
         .then((res) => console.log(res));
     };
     */
+    function test(){
+        alert('test');
+    }
     return (
         <form
             // onSubmit={submitHandler}
         >
-            <div className={LoginMenu ? `${Styles.Login_Popup_Wrap}` : `${Styles.Login_Popup_Wrap} ${Styles.overlay}`}>
+            <div 
+                className={LoginMenu ? `${Styles.Login_Popup_Wrap}` : `${Styles.Login_Popup_Wrap} ${Styles.overlay}`}
+                
+            >
                 <div className={Styles.loginModal}>
                     <div className={Styles.loginClose} onClick={() => props.toggleClass("LoginMenu")}>
                         &times;
