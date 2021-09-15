@@ -1,9 +1,9 @@
-import React, { useRef,useState } from 'react';
+import React, { useState } from 'react';
 import 'boxicons';
 import LeftNavstyle from "../css/LeftNav.module.scss";
 import IconArrow from "./LeftNavIcon";
-import LoginModal from '../components/LoginModal';
-
+//import LoginModal from '../components/LoginModal';
+import LoginModalContainer from "../containers/LoginModalContainer";
 function LeftNav(props) {
     
     /*
@@ -173,7 +173,7 @@ function LeftNav(props) {
                         </div>
                     </li>
                 </ul>
-                <LoginModal 
+                <LoginModalContainer 
                     LoginMenu={LoginMenu}
                     toggleClass={toggleClass}
                 />

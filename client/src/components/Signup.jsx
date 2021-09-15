@@ -1,28 +1,9 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import Styles from "../css/LoginModal.module.scss";
 
-function LoginModal(props) {
+function Signup(props) {
     const LoginMenu = props.LoginMenu;
-    //Hook으로 input값들 받아서 axios사용하자.
-    /*
-    const submitHandler = (e) => {
-        e.preventDefault();
-        // state에 저장한 값을 가져옵니다.
-        console.log(Email);
-        console.log(Password);
-
-        let body = {
-        email: Email,
-        password: Password,
-        };
-
-        axios
-        .post("http://localhost:5000/api/users/login", body)
-        .then((res) => console.log(res));
-    };
-    */
-
+    
     return (
         <form
             // onSubmit={submitHandler}
@@ -36,7 +17,7 @@ function LoginModal(props) {
                         &times;
                     </div>
                     <div className={Styles.modalContents}>
-                        <div>로고</div>    
+                        <div>회원가입 로고</div>    
                     </div>
                     <input
                         name="email"
@@ -59,15 +40,10 @@ function LoginModal(props) {
                     <button className={Styles.loginBtn} >
                     로그인  
                     </button>
-                    <div className={Styles.loginEnd}>
-                        <div className={Styles.loginLine}>
-                        회원이 아니신가요? <Link to="/signup">회원가입</Link>
-                        </div>
-                    </div>
                 </div>
             </div>
         </form>
     )
 }
 
-export default LoginModal;
+export default Signup;

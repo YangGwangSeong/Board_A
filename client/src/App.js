@@ -6,7 +6,6 @@ import Footer from "./containers/FooterContainer";
 import Header from "./containers/HeaderContainer";
 import LeftNav from "./containers/LeftNavContainer";
 
-import LoginModal from "./components/LoginModal";
 //npm install node-sass@4.14.1
 //npm install boxicons --save
 //npm install react-router-dom
@@ -29,7 +28,6 @@ useEffect( () => {
 
   return (
     <div className="flex">
-      <LoginModal />
       <div>
         <LeftNav 
           setClose={setClose}
