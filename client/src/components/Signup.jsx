@@ -4,6 +4,8 @@ import Styles from "../css/LoginModal.module.scss";
 function Signup(props) {
     const LoginMenu = props.LoginMenu;
     
+    //onsubmit 함수 만들어서 여기에 리덕스 가져온 다음에 dispatch이용해서
+    //insert 요청하는 request 만들기.
     return (
         <form
             // onSubmit={submitHandler}
@@ -21,24 +23,41 @@ function Signup(props) {
                     </div>
                     <input
                         name="email"
-                        className={Styles.loginId}
+                        className={Styles.Sign_input}
                         type="text"
-                        placeholder="아이디"
+                        placeholder="이메일"
+                        // onChange={this.loginHandler}
+                    />
+                    <input
+                        name="email"
+                        className={Styles.Sign_input}
+                        type="text"
+                        placeholder="생년월일8자리(ex.19980905)"
+                        // onChange={this.loginHandler}
+                    />
+                     <input
+                        name="nickname"
+                        className={Styles.Sign_input}
+                        type="text"
+                        placeholder="닉네임(이름)"
                         // onChange={this.loginHandler}
                     />
                     <input
                         name="password"
-                        className={Styles.loginPw}
+                        className={Styles.Sign_input}
                         type="password"
                         placeholder="비밀번호"
                         // onChange={this.loginHandler}
                     />
-                    <div className={Styles.loginMid}>
-                        <div className={Styles.autoLogin}>123</div>
-                        <div className={Styles.autoLogin}>아이디/비밀번호 찾기</div>
-                    </div>
+                    <input
+                        name="password_retry"
+                        className={Styles.Sign_input}
+                        type="password"
+                        placeholder="비밀번호 확인"
+                        // onChange={this.loginHandler}
+                    />
                     <button className={Styles.loginBtn} >
-                    로그인  
+                    회원가입  
                     </button>
                 </div>
             </div>
