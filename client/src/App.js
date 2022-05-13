@@ -10,12 +10,14 @@ import LeftNav from "./containers/LeftNavContainer";
 //npm install boxicons --save
 //npm install react-router-dom
 
+//npm install redux-logger
+//npm install redux-devtools-extension
+//npm install react-router-dom
 
 function App() {
   const [isClose, setClose] = useState(true);
 
   const [data, setData] = useState([]);
-
   const getUsers = async () => {
     const result = await axios.get('/users');
     setData(result.data);

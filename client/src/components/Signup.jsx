@@ -2,6 +2,7 @@ import React from 'react'
 import Styles from "../css/LoginModal.module.scss";
 
 function Signup(props) {
+    
     const LoginMenu = props.LoginMenu;
     
     //onsubmit 함수 만들어서 여기에 리덕스 가져온 다음에 dispatch이용해서
@@ -11,8 +12,7 @@ function Signup(props) {
             // onSubmit={submitHandler}
         >
             <div 
-                className={LoginMenu ? `${Styles.Login_Popup_Wrap}` : `${Styles.Login_Popup_Wrap} ${Styles.overlay}`}
-                
+                className={LoginMenu ? `${Styles.Login_Popup_Wrap}` : `${Styles.Login_Popup_Wrap} ${Styles.overlay}`}  
             >
                 <div className={Styles.loginModal}>
                     <div className={Styles.loginClose} onClick={() => props.toggleClass("LoginMenu")}>
